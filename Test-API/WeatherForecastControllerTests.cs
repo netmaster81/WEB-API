@@ -4,6 +4,7 @@ using WEB_API.Controllers;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using WEB_API;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Test_API
 {
@@ -28,6 +29,13 @@ namespace Test_API
             var response = _controller.Get();
             Assert.NotNull(response);
 
+        }
+        [Fact]
+
+        public void Check_WeatherForecastOkActionResult()
+        {
+            var response = _controller.GetActionResult();
+            Assert.IsType<OkObjectResult>(response.Result);
         }
     }
 }
